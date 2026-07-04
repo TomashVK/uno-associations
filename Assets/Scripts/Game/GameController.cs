@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 {
     private int currentLevelId = 1;
     private bool levelWon;
+    private bool outOfMovesPending;
 
     [SerializeField] private HandManager handManager;
     [SerializeField] private CardDeck cardDeck;
@@ -244,12 +245,22 @@ public class GameController : MonoBehaviour
         RefreshResetDeckVisual();
     }
 
+    // MovesExhausted fires mid-drop, from ActiveCardSlot.CardPlayed — before the dropped
+    // card has actually left the hand (that happens later via Card.Dropped -> CardLeftHand
+    // -> CheckWin, still within the same frame). So levelWon/CardCount aren't settled yet
+    // here; defer the actual check to LateUpdate, by which point a same-frame win has
+    // already been resolved.
     private void ShowOutOfMovesSettings()
     {
-        // MovesExhausted and the win check both fire off the same CardPlayed event, in an
-        // order that depends on component subscription order — so levelWon isn't reliably
-        // set yet here. Check the actual win condition directly instead of relying on it.
-        if (levelWon || handManager.CardCount == 0) return;
+        outOfMovesPending = true;
+    }
+
+    private void LateUpdate()
+    {
+        if (!outOfMovesPending) return;
+        outOfMovesPending = false;
+        if (levelWon) return;
+
         SettingsPanel panel = FindObjectOfType<SettingsPanel>(true);
         if (panel != null) panel.ShowOutOfMoves();
     }

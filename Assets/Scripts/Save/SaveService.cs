@@ -40,6 +40,13 @@ public class SaveService : MonoBehaviour
         storage.Load(json =>
         {
             Data = string.IsNullOrEmpty(json) ? new SaveGameData() : JsonUtility.FromJson<SaveGameData>(json);
+
+            // JsonUtility can't round-trip a null reference field: a null inProgressLevel
+            // gets written out as (and read back as) a default-valued instance — levelId 0 —
+            // instead of staying null. Normalize that back to null here so every other
+            // reader can trust "non-null inProgressLevel" to mean a real resumable level.
+            if (Data.inProgressLevel != null && Data.inProgressLevel.levelId <= 0)
+                Data.inProgressLevel = null;
         });
     }
 

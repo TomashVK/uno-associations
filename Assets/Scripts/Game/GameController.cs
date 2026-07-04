@@ -14,7 +14,6 @@ public class GameController : MonoBehaviour
     [SerializeField] private RevealPile revealPile;
     [SerializeField] private ActiveCardSlot activeCardSlot;
     [SerializeField] private MoveCounter moveCounter;
-    [SerializeField] private ContinuePanel continuePanel;
     [SerializeField] private TMP_Text moveCountText;
     [SerializeField] private GameObject winPanel;
     [SerializeField] private HudStarDisplay hudStarDisplay;
@@ -45,7 +44,6 @@ public class GameController : MonoBehaviour
         HandManager.CardLeftHand += CheckWin;
         ActiveCardSlot.CardPlayed += CheckWin;
         MoveCounter.MovesChanged += RefreshMoveHUD;
-        MoveCounter.MovesExhausted += OnMovesExhausted;
 
         RevealPile.CardDrawnToRevealPile += CaptureState;
         HandDropZone.CardTakenToHand += CaptureState;
@@ -60,7 +58,6 @@ public class GameController : MonoBehaviour
         HandManager.CardLeftHand -= CheckWin;
         ActiveCardSlot.CardPlayed -= CheckWin;
         MoveCounter.MovesChanged -= RefreshMoveHUD;
-        MoveCounter.MovesExhausted -= OnMovesExhausted;
 
         RevealPile.CardDrawnToRevealPile -= CaptureState;
         HandDropZone.CardTakenToHand -= CaptureState;
@@ -88,7 +85,6 @@ public class GameController : MonoBehaviour
             if (button != null) button.Init(level.GetFreeUses(button.ConsumableId));
 
         if (winPanel != null) winPanel.SetActive(false);
-        if (continuePanel != null) continuePanel.gameObject.SetActive(false);
 
         var allCards = new[] { MakeCardData(level.activeCard) }
             .Concat(level.hand.Select(MakeCardData))
@@ -127,7 +123,12 @@ public class GameController : MonoBehaviour
     // identical to a fresh one, just dealing different cards.
     private IEnumerator RestoreFromSave(InProgressLevelState saved)
     {
-        cardDeck.RestoreState(saved.deckCards, saved.deckDrawIndex);
+        CardData[] fullPool = saved.deckCards
+            .Concat(saved.handCards)
+            .Concat(saved.pileCards)
+            .Concat(saved.activeStackCards)
+            .ToArray();
+        cardDeck.RestoreState(saved.deckCards, saved.deckDrawIndex, fullPool);
         moveCounter.RestoreState(saved.movesRemaining, saved.totalMovesSpent);
 
         foreach (ConsumableButton button in consumableButtons)
@@ -218,11 +219,6 @@ public class GameController : MonoBehaviour
         SaveService.Instance.CompleteLevel(currentLevelId, stars, moveCounter.TotalMovesSpent);
     }
 
-    private void OnMovesExhausted()
-    {
-        if (continuePanel != null) continuePanel.Show();
-    }
-
     private void RefreshMoveHUD()
     {
         if (moveCountText != null && moveCounter != null)
@@ -235,10 +231,10 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void LoadNextLevel()
+    public void ContinueToLobby()
     {
         currentLevelId++;
         SaveService.Instance.SetCurrentLevel(currentLevelId);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("LobbyScene");
     }
 }

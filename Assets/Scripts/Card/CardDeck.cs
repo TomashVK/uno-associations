@@ -25,10 +25,15 @@ public class CardDeck : MonoBehaviour, IPointerClickHandler
     public int RemainingCount => cards.Length - drawIndex;
     public int DrawIndex => drawIndex;
     public CardData[] GetCurrentCards() => (CardData[])cards.Clone();
-    public void RestoreState(CardData[] savedCards, int savedDrawIndex)
+    // fullPool re-anchors originalCards to the CardData instances actually in play after a
+    // restore. Without it, originalCards still points at the fresh instances SetCards made
+    // on this LoadLevel, which are reference-distinct from the deserialized save data, so
+    // RestartDeck's reference-equality recycle check would never match anything.
+    public void RestoreState(CardData[] savedCards, int savedDrawIndex, CardData[] fullPool = null)
     {
         cards = savedCards;
         drawIndex = savedDrawIndex;
+        if (fullPool != null) originalCards = fullPool;
         UpdateDeckVisual();
     }
     private void Awake()

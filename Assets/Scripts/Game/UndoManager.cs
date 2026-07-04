@@ -210,6 +210,7 @@ public class UndoManager : MonoBehaviour
         // Move starts immediately and runs in the background, mirroring how the
         // forward draw's hand-layout move tween overlaps with its flip.
         rt.DOAnchorPos(deckPos, CardAnimationSettings.Instance.MoveDuration).SetEase(Ease.Linear);
+        AudioManager.Instance?.PlayDealSound();
 
         yield return new WaitForSeconds(CardAnimationSettings.Instance.MoveDuration * CardAnimationSettings.Instance.FlipStartPercent);
 
@@ -281,6 +282,7 @@ public class UndoManager : MonoBehaviour
             if (record.spawnPoint != null)
             {
                 Vector2 targetPos = container.InverseTransformPoint(record.spawnPoint.position);
+                AudioManager.Instance?.PlayDealSound();
                 yield return rt.DOAnchorPos(targetPos, CardAnimationSettings.Instance.MoveDuration).SetEase(Ease.Linear).WaitForCompletion();
             }
 

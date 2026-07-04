@@ -147,6 +147,7 @@ public class HandManager : MonoBehaviour
         card.ShowBack(backCount);
 
         onPlaced?.Invoke(card);
+        AudioManager.Instance?.PlayDealSound();
 
         yield return new WaitForSeconds(CardAnimationSettings.Instance.MoveDuration * CardAnimationSettings.Instance.FlipStartPercent);
         yield return newCardObj.transform.DOScaleX(0f, CardAnimationSettings.Instance.FlipHalfDuration).SetEase(Ease.Linear).WaitForCompletion();
@@ -202,7 +203,7 @@ public class HandManager : MonoBehaviour
 
     private void DrawCard()
     {
-        MOST_HapticFeedback.Generate(MOST_HapticFeedback.HapticTypes.MediumImpact);
+        if (GameSettings.VibrationEnabled) MOST_HapticFeedback.Generate(MOST_HapticFeedback.HapticTypes.MediumImpact);
         if (isDrawing || isDealing) return;
         if (cardDeck == null) return;
         if (MoveCounter.IsOutOfMoves) return;

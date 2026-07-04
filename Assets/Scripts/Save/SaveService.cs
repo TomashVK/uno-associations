@@ -95,6 +95,14 @@ public class SaveService : MonoBehaviour
         RequestSave();
     }
 
+    public SettingsData GetSettings() => Data.settings ??= new SettingsData();
+
+    public void SetSettings(SettingsData settings)
+    {
+        Data.settings = settings;
+        RequestSave();
+    }
+
     // Debug-only full reset (see DebugResetTrigger) — simulates a fresh install and
     // reloads immediately so the effect is visible right away.
     public void ResetAll()

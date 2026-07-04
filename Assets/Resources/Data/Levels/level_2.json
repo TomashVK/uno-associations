@@ -1,0 +1,12 @@
+[
+  {
+    "activeCard": "squirrel",
+    "hand": ["seed", "wolf", "grass"],
+    "deck": ["tree", "leaf", "mouse", "bush", "soil"],
+    "maxMoves": 15,
+    "optimalMoves": 5,
+    "optimalPath": ["squirrel", "wolf", "tree", "seed", "grass"],
+    "pathDescription": "squirrel → wolf → [draw tree] → tree → seed → grass",
+    "worstPath": "squirrel → wolf → mouse → soil → bush → leaf → grass → tree → seed  (5 draws, 15 moves)"
+  }
+]

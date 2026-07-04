@@ -198,7 +198,7 @@ public class Card : MonoBehaviour,
 
         if (accepted)
         {
-            MOST_HapticFeedback.Generate(MOST_HapticFeedback.HapticTypes.Success);
+            if (GameSettings.VibrationEnabled) MOST_HapticFeedback.Generate(MOST_HapticFeedback.HapticTypes.Success);
             Dropped?.Invoke(this);
             return;
         }
@@ -208,7 +208,7 @@ public class Card : MonoBehaviour,
 
     private System.Collections.IEnumerator SnapBackWithNudge()
     {
-        MOST_HapticFeedback.Generate(MOST_HapticFeedback.HapticTypes.Warning);
+        if (GameSettings.VibrationEnabled) MOST_HapticFeedback.Generate(MOST_HapticFeedback.HapticTypes.Warning);
         rectTransform.anchoredPosition = startAnchoredPos;
         SetSortingOrder(restingSortingOrder);
         ApplyOrientation(restingHorizontal);

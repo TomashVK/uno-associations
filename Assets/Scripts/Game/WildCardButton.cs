@@ -39,6 +39,7 @@ public class WildCardButton : MonoBehaviour
         card.SetHorizontal(true);
 
         handManager.AddCardFromRevealPile(card);
+        AudioManager.Instance?.PlayDealSound();
 
         UndoManager.Instance?.RecordWildCardSpawn(card, consumableButton, spawnPoint);
         WildCardSpawned?.Invoke();

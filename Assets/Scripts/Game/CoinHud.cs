@@ -23,7 +23,10 @@ public class CoinHud : MonoBehaviour
 
     private void Refresh()
     {
-        if (coinText != null && CoinService.Instance != null)
-            coinText.text = CoinService.Instance.Coins.ToString();
+        if (coinText == null) return;
+        int coins = CoinService.Instance != null
+            ? CoinService.Instance.Coins
+            : (SaveService.Instance?.Data.coins ?? 0);
+        coinText.text = coins.ToString();
     }
 }

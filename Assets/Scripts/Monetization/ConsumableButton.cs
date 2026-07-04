@@ -54,7 +54,7 @@ public class ConsumableButton : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        MOST_HapticFeedback.Generate(MOST_HapticFeedback.HapticTypes.MediumImpact);
+        if (GameSettings.VibrationEnabled) MOST_HapticFeedback.Generate(MOST_HapticFeedback.HapticTypes.MediumImpact);
         RequestUse();
     }
 

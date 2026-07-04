@@ -1,0 +1,206 @@
+[
+  {
+    "activeCard": "zoo",
+    "hand": ["tree", "bone", "tiger", "cage", "food", "lion", "park", "bear"],
+    "deck": ["zookeeper", "meat", "dog", "leash", "leaf", "gate", "bee", "collar", "ticket", "butterfly", "map", "flower"],
+    "maxMoves": 20,
+    "optimalMoves": 16,
+    "cards": [
+      {
+        "id": "zoo",
+        "text": "Zoo",
+        "image": "zoo"
+      },
+      {
+        "id": "tree",
+        "text": "Tree",
+        "image": "tree"
+      },
+      {
+        "id": "bone",
+        "text": "Bone",
+        "image": "bone"
+      },
+      {
+        "id": "tiger",
+        "text": "Tiger",
+        "image": "tiger"
+      },
+      {
+        "id": "cage",
+        "text": "Cage",
+        "image": "cage"
+      },
+      {
+        "id": "food",
+        "text": "Food",
+        "image": "food"
+      },
+      {
+        "id": "lion",
+        "text": "Lion",
+        "image": "lion"
+      },
+      {
+        "id": "park",
+        "text": "Park",
+        "image": "park"
+      },
+      {
+        "id": "bear",
+        "text": "Bear",
+        "image": "bear"
+      },
+      {
+        "id": "zookeeper",
+        "text": "Zookeeper",
+        "image": "zookeeper"
+      },
+      {
+        "id": "meat",
+        "text": "Meat",
+        "image": "meat"
+      },
+      {
+        "id": "dog",
+        "text": "Dog",
+        "image": "dog"
+      },
+      {
+        "id": "leash",
+        "text": "Leash",
+        "image": "leash"
+      },
+      {
+        "id": "leaf",
+        "text": "Leaf",
+        "image": "leaf"
+      },
+      {
+        "id": "gate",
+        "text": "Gate",
+        "image": "gate"
+      },
+      {
+        "id": "bee",
+        "text": "Bee",
+        "image": "bee"
+      },
+      {
+        "id": "collar",
+        "text": "Collar",
+        "image": "collar"
+      },
+      {
+        "id": "ticket",
+        "text": "Ticket",
+        "image": "ticket"
+      },
+      {
+        "id": "butterfly",
+        "text": "Butterfly",
+        "image": "butterfly"
+      },
+      {
+        "id": "map",
+        "text": "Map",
+        "image": "map"
+      },
+      {
+        "id": "flower",
+        "text": "Flower",
+        "image": "flower"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "zoo",
+        "card2": "lion"
+      },
+      {
+        "card1": "zoo",
+        "card2": "tiger"
+      },
+      {
+        "card1": "zoo",
+        "card2": "bear"
+      },
+      {
+        "card1": "lion",
+        "card2": "tiger"
+      },
+      {
+        "card1": "lion",
+        "card2": "bear"
+      },
+      {
+        "card1": "tiger",
+        "card2": "bear"
+      },
+      {
+        "card1": "lion",
+        "card2": "cage"
+      },
+      {
+        "card1": "tiger",
+        "card2": "cage"
+      },
+      {
+        "card1": "bear",
+        "card2": "cage"
+      },
+      {
+        "card1": "cage",
+        "card2": "zookeeper"
+      },
+      {
+        "card1": "zookeeper",
+        "card2": "food"
+      },
+      {
+        "card1": "food",
+        "card2": "meat"
+      },
+      {
+        "card1": "meat",
+        "card2": "bone"
+      },
+      {
+        "card1": "bone",
+        "card2": "dog"
+      },
+      {
+        "card1": "dog",
+        "card2": "leash"
+      },
+      {
+        "card1": "leash",
+        "card2": "park"
+      },
+      {
+        "card1": "park",
+        "card2": "tree"
+      },
+      {
+        "card1": "tree",
+        "card2": "leaf"
+      },
+      {
+        "card1": "flower",
+        "card2": "bee"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

@@ -1,0 +1,147 @@
+[
+  {
+    "activeCard": "hospital",
+    "hand": ["door", "patient", "blanket", "nurse", "pillow", "doctor"],
+    "deck": ["bed", "room", "siren", "bandage", "medicine", "ambulance", "stethoscope"],
+    "maxMoves": 10,
+    "optimalMoves": 10,
+    "cards": [
+      {
+        "id": "hospital",
+        "text": "Hospital",
+        "image": "hospital"
+      },
+      {
+        "id": "door",
+        "text": "Door",
+        "image": "door"
+      },
+      {
+        "id": "patient",
+        "text": "Patient",
+        "image": "patient"
+      },
+      {
+        "id": "blanket",
+        "text": "Blanket",
+        "image": "blanket"
+      },
+      {
+        "id": "nurse",
+        "text": "Nurse",
+        "image": "nurse"
+      },
+      {
+        "id": "pillow",
+        "text": "Pillow",
+        "image": "pillow"
+      },
+      {
+        "id": "doctor",
+        "text": "Doctor",
+        "image": "doctor"
+      },
+      {
+        "id": "bed",
+        "text": "Bed",
+        "image": "bed"
+      },
+      {
+        "id": "room",
+        "text": "Room",
+        "image": "room"
+      },
+      {
+        "id": "siren",
+        "text": "Siren",
+        "image": "siren"
+      },
+      {
+        "id": "bandage",
+        "text": "Bandage",
+        "image": "bandage"
+      },
+      {
+        "id": "medicine",
+        "text": "Medicine",
+        "image": "medicine"
+      },
+      {
+        "id": "ambulance",
+        "text": "Ambulance",
+        "image": "ambulance"
+      },
+      {
+        "id": "stethoscope",
+        "text": "Stethoscope",
+        "image": "stethoscope"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "hospital",
+        "card2": "doctor"
+      },
+      {
+        "card1": "hospital",
+        "card2": "nurse"
+      },
+      {
+        "card1": "hospital",
+        "card2": "patient"
+      },
+      {
+        "card1": "doctor",
+        "card2": "nurse"
+      },
+      {
+        "card1": "doctor",
+        "card2": "patient"
+      },
+      {
+        "card1": "nurse",
+        "card2": "patient"
+      },
+      {
+        "card1": "doctor",
+        "card2": "bed"
+      },
+      {
+        "card1": "nurse",
+        "card2": "bed"
+      },
+      {
+        "card1": "patient",
+        "card2": "bed"
+      },
+      {
+        "card1": "bed",
+        "card2": "pillow"
+      },
+      {
+        "card1": "pillow",
+        "card2": "blanket"
+      },
+      {
+        "card1": "blanket",
+        "card2": "room"
+      },
+      {
+        "card1": "room",
+        "card2": "door"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

@@ -6,16 +6,13 @@ public class CardDefinition
     public string id;
     public string text;
     public string image;
-    public string category;
-    public string[] tags;
 }
 
 [System.Serializable]
-public class ConnectionDefinition
+public class LevelConnection
 {
     public string card1;
     public string card2;
-    public float strength;
 }
 
 [System.Serializable]
@@ -23,6 +20,7 @@ public class ConsumableFreeUses
 {
     public string id;
     public int freeUses;
+    public int cost;
 }
 
 [System.Serializable]
@@ -34,6 +32,8 @@ public class LevelDefinition
     public string[] deck;
     public int maxMoves;
     public int optimalMoves;
+    public CardDefinition[] cards;
+    public LevelConnection[] connections;
     public ConsumableFreeUses[] consumableFreeUses;
 
     public int GetFreeUses(string consumableId)
@@ -43,29 +43,19 @@ public class LevelDefinition
             if (c.id == consumableId) return c.freeUses;
         return 0;
     }
+
+    public int GetCost(string consumableId)
+    {
+        if (consumableFreeUses == null) return 0;
+        foreach (ConsumableFreeUses c in consumableFreeUses)
+            if (c.id == consumableId) return c.cost;
+        return 0;
+    }
+
+    public CardDefinition GetCard(string cardId) =>
+        System.Array.Find(cards, c => c.id == cardId);
 }
 
-[System.Serializable]
-public class TagRule
-{
-    public string tag1;
-    public string tag2;
-    public float strength;
-}
-
-[System.Serializable]
-public class RuntimeConnection
-{
-    public string targetId;
-    public float strength;
-}
-
-// JsonUtility cannot deserialize bare JSON arrays — wrap with these helpers at load time.
-[System.Serializable]
-public class CardDefinitionList { public List<CardDefinition> items; }
-[System.Serializable]
-public class ConnectionDefinitionList { public List<ConnectionDefinition> items; }
-[System.Serializable]
-public class TagRuleList { public List<TagRule> items; }
+// JsonUtility cannot deserialize bare JSON arrays — wrap with this helper at load time.
 [System.Serializable]
 public class LevelVariantList { public List<LevelDefinition> items; }

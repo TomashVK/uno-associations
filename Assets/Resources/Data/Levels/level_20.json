@@ -1,0 +1,255 @@
+[
+  {
+    "activeCard": "computer",
+    "hand": ["stage", "paper", "mouse", "desk", "keyboard", "piano", "screen", "printer"],
+    "deck": ["office", "letter", "envelope", "mail", "mailbox", "key", "music", "battery", "camera", "lamp", "speaker", "phone", "cable", "microphone", "singer", "chair", "song"],
+    "maxMoves": 25,
+    "optimalMoves": 22,
+    "cards": [
+      {
+        "id": "computer",
+        "text": "Computer",
+        "image": "computer"
+      },
+      {
+        "id": "stage",
+        "text": "Stage",
+        "image": "stage"
+      },
+      {
+        "id": "paper",
+        "text": "Paper",
+        "image": "paper"
+      },
+      {
+        "id": "mouse",
+        "text": "Mouse",
+        "image": "mouse"
+      },
+      {
+        "id": "desk",
+        "text": "Desk",
+        "image": "desk"
+      },
+      {
+        "id": "keyboard",
+        "text": "Keyboard",
+        "image": "keyboard"
+      },
+      {
+        "id": "piano",
+        "text": "Piano",
+        "image": "piano"
+      },
+      {
+        "id": "screen",
+        "text": "Screen",
+        "image": "screen"
+      },
+      {
+        "id": "printer",
+        "text": "Printer",
+        "image": "printer"
+      },
+      {
+        "id": "office",
+        "text": "Office",
+        "image": "office"
+      },
+      {
+        "id": "letter",
+        "text": "Letter",
+        "image": "letter"
+      },
+      {
+        "id": "envelope",
+        "text": "Envelope",
+        "image": "envelope"
+      },
+      {
+        "id": "mail",
+        "text": "Mail",
+        "image": "mail"
+      },
+      {
+        "id": "mailbox",
+        "text": "Mailbox",
+        "image": "mailbox"
+      },
+      {
+        "id": "key",
+        "text": "Key",
+        "image": "key"
+      },
+      {
+        "id": "music",
+        "text": "Music",
+        "image": "music"
+      },
+      {
+        "id": "battery",
+        "text": "Battery",
+        "image": "battery"
+      },
+      {
+        "id": "camera",
+        "text": "Camera",
+        "image": "camera"
+      },
+      {
+        "id": "lamp",
+        "text": "Lamp",
+        "image": "lamp"
+      },
+      {
+        "id": "speaker",
+        "text": "Speaker",
+        "image": "speaker"
+      },
+      {
+        "id": "phone",
+        "text": "Phone",
+        "image": "phone"
+      },
+      {
+        "id": "cable",
+        "text": "Cable",
+        "image": "cable"
+      },
+      {
+        "id": "microphone",
+        "text": "Microphone",
+        "image": "microphone"
+      },
+      {
+        "id": "singer",
+        "text": "Singer",
+        "image": "singer"
+      },
+      {
+        "id": "chair",
+        "text": "Chair",
+        "image": "chair"
+      },
+      {
+        "id": "song",
+        "text": "Song",
+        "image": "song"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "computer",
+        "card2": "keyboard"
+      },
+      {
+        "card1": "computer",
+        "card2": "mouse"
+      },
+      {
+        "card1": "computer",
+        "card2": "screen"
+      },
+      {
+        "card1": "keyboard",
+        "card2": "mouse"
+      },
+      {
+        "card1": "keyboard",
+        "card2": "screen"
+      },
+      {
+        "card1": "mouse",
+        "card2": "screen"
+      },
+      {
+        "card1": "keyboard",
+        "card2": "desk"
+      },
+      {
+        "card1": "mouse",
+        "card2": "desk"
+      },
+      {
+        "card1": "screen",
+        "card2": "desk"
+      },
+      {
+        "card1": "desk",
+        "card2": "office"
+      },
+      {
+        "card1": "office",
+        "card2": "printer"
+      },
+      {
+        "card1": "printer",
+        "card2": "paper"
+      },
+      {
+        "card1": "paper",
+        "card2": "letter"
+      },
+      {
+        "card1": "letter",
+        "card2": "envelope"
+      },
+      {
+        "card1": "envelope",
+        "card2": "mail"
+      },
+      {
+        "card1": "mail",
+        "card2": "mailbox"
+      },
+      {
+        "card1": "mailbox",
+        "card2": "key"
+      },
+      {
+        "card1": "key",
+        "card2": "piano"
+      },
+      {
+        "card1": "piano",
+        "card2": "music"
+      },
+      {
+        "card1": "music",
+        "card2": "stage"
+      },
+      {
+        "card1": "music",
+        "card2": "song"
+      },
+      {
+        "card1": "song",
+        "card2": "singer"
+      },
+      {
+        "card1": "singer",
+        "card2": "microphone"
+      },
+      {
+        "card1": "microphone",
+        "card2": "stage"
+      },
+      {
+        "card1": "keyboard",
+        "card2": "letter"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

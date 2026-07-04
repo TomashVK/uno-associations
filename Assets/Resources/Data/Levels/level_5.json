@@ -1,0 +1,94 @@
+[
+  {
+    "activeCard": "forest",
+    "hand": ["flower", "leaf", "tree", "caterpillar"],
+    "deck": ["butterfly", "bear", "bee", "honey"],
+    "maxMoves": 10,
+    "optimalMoves": 6,
+    "cards": [
+      {
+        "id": "forest",
+        "text": "Forest",
+        "image": "forest"
+      },
+      {
+        "id": "flower",
+        "text": "Flower",
+        "image": "flower"
+      },
+      {
+        "id": "leaf",
+        "text": "Leaf",
+        "image": "leaf"
+      },
+      {
+        "id": "tree",
+        "text": "Tree",
+        "image": "tree"
+      },
+      {
+        "id": "caterpillar",
+        "text": "Caterpillar",
+        "image": "caterpillar"
+      },
+      {
+        "id": "butterfly",
+        "text": "Butterfly",
+        "image": "butterfly"
+      },
+      {
+        "id": "bear",
+        "text": "Bear",
+        "image": "bear"
+      },
+      {
+        "id": "bee",
+        "text": "Bee",
+        "image": "bee"
+      },
+      {
+        "id": "honey",
+        "text": "Honey",
+        "image": "honey"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "forest",
+        "card2": "tree"
+      },
+      {
+        "card1": "tree",
+        "card2": "leaf"
+      },
+      {
+        "card1": "leaf",
+        "card2": "caterpillar"
+      },
+      {
+        "card1": "caterpillar",
+        "card2": "butterfly"
+      },
+      {
+        "card1": "butterfly",
+        "card2": "flower"
+      },
+      {
+        "card1": "flower",
+        "card2": "bee"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

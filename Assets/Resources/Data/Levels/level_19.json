@@ -1,0 +1,238 @@
+[
+  {
+    "activeCard": "volcano",
+    "hand": ["coffee", "rock", "lava", "tomato", "cheese", "goat", "pizza", "ash"],
+    "deck": ["mountain", "milk", "plate", "egg", "breakfast", "needle", "feather", "rose", "hospital", "bird", "pillow", "nest", "thorn", "bed", "doctor", "red"],
+    "maxMoves": 20,
+    "optimalMoves": 18,
+    "cards": [
+      {
+        "id": "volcano",
+        "text": "Volcano",
+        "image": "volcano"
+      },
+      {
+        "id": "coffee",
+        "text": "Coffee",
+        "image": "coffee"
+      },
+      {
+        "id": "rock",
+        "text": "Rock",
+        "image": "rock"
+      },
+      {
+        "id": "lava",
+        "text": "Lava",
+        "image": "lava"
+      },
+      {
+        "id": "tomato",
+        "text": "Tomato",
+        "image": "tomato"
+      },
+      {
+        "id": "cheese",
+        "text": "Cheese",
+        "image": "cheese"
+      },
+      {
+        "id": "goat",
+        "text": "Goat",
+        "image": "goat"
+      },
+      {
+        "id": "pizza",
+        "text": "Pizza",
+        "image": "pizza"
+      },
+      {
+        "id": "ash",
+        "text": "Ash",
+        "image": "ash"
+      },
+      {
+        "id": "mountain",
+        "text": "Mountain",
+        "image": "mountain"
+      },
+      {
+        "id": "milk",
+        "text": "Milk",
+        "image": "milk"
+      },
+      {
+        "id": "plate",
+        "text": "Plate",
+        "image": "plate"
+      },
+      {
+        "id": "egg",
+        "text": "Egg",
+        "image": "egg"
+      },
+      {
+        "id": "breakfast",
+        "text": "Breakfast",
+        "image": "breakfast"
+      },
+      {
+        "id": "needle",
+        "text": "Needle",
+        "image": "needle"
+      },
+      {
+        "id": "feather",
+        "text": "Feather",
+        "image": "feather"
+      },
+      {
+        "id": "rose",
+        "text": "Rose",
+        "image": "rose"
+      },
+      {
+        "id": "hospital",
+        "text": "Hospital",
+        "image": "hospital"
+      },
+      {
+        "id": "bird",
+        "text": "Bird",
+        "image": "bird"
+      },
+      {
+        "id": "pillow",
+        "text": "Pillow",
+        "image": "pillow"
+      },
+      {
+        "id": "nest",
+        "text": "Nest",
+        "image": "nest"
+      },
+      {
+        "id": "thorn",
+        "text": "Thorn",
+        "image": "thorn"
+      },
+      {
+        "id": "bed",
+        "text": "Bed",
+        "image": "bed"
+      },
+      {
+        "id": "doctor",
+        "text": "Doctor",
+        "image": "doctor"
+      },
+      {
+        "id": "red",
+        "text": "Red",
+        "image": "red"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "volcano",
+        "card2": "lava"
+      },
+      {
+        "card1": "volcano",
+        "card2": "ash"
+      },
+      {
+        "card1": "volcano",
+        "card2": "rock"
+      },
+      {
+        "card1": "lava",
+        "card2": "ash"
+      },
+      {
+        "card1": "lava",
+        "card2": "rock"
+      },
+      {
+        "card1": "ash",
+        "card2": "rock"
+      },
+      {
+        "card1": "lava",
+        "card2": "mountain"
+      },
+      {
+        "card1": "ash",
+        "card2": "mountain"
+      },
+      {
+        "card1": "rock",
+        "card2": "mountain"
+      },
+      {
+        "card1": "mountain",
+        "card2": "goat"
+      },
+      {
+        "card1": "goat",
+        "card2": "milk"
+      },
+      {
+        "card1": "milk",
+        "card2": "cheese"
+      },
+      {
+        "card1": "cheese",
+        "card2": "pizza"
+      },
+      {
+        "card1": "pizza",
+        "card2": "tomato"
+      },
+      {
+        "card1": "tomato",
+        "card2": "plate"
+      },
+      {
+        "card1": "plate",
+        "card2": "egg"
+      },
+      {
+        "card1": "egg",
+        "card2": "breakfast"
+      },
+      {
+        "card1": "breakfast",
+        "card2": "coffee"
+      },
+      {
+        "card1": "red",
+        "card2": "rose"
+      },
+      {
+        "card1": "rose",
+        "card2": "thorn"
+      },
+      {
+        "card1": "thorn",
+        "card2": "needle"
+      },
+      {
+        "card1": "doctor",
+        "card2": "hospital"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

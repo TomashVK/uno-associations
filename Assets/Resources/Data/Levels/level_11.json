@@ -1,0 +1,175 @@
+[
+  {
+    "activeCard": "desert",
+    "hand": ["compass", "camel", "bottle", "sand", "polar_bear", "cactus", "water", "map"],
+    "deck": ["oasis", "north", "tent", "fur", "ice", "sunglasses", "button", "snake", "coat"],
+    "maxMoves": 15,
+    "optimalMoves": 12,
+    "cards": [
+      {
+        "id": "desert",
+        "text": "Desert",
+        "image": "desert"
+      },
+      {
+        "id": "compass",
+        "text": "Compass",
+        "image": "compass"
+      },
+      {
+        "id": "camel",
+        "text": "Camel",
+        "image": "camel"
+      },
+      {
+        "id": "bottle",
+        "text": "Bottle",
+        "image": "bottle"
+      },
+      {
+        "id": "sand",
+        "text": "Sand",
+        "image": "sand"
+      },
+      {
+        "id": "polar_bear",
+        "text": "Polar Bear",
+        "image": "polar_bear"
+      },
+      {
+        "id": "cactus",
+        "text": "Cactus",
+        "image": "cactus"
+      },
+      {
+        "id": "water",
+        "text": "Water",
+        "image": "water"
+      },
+      {
+        "id": "map",
+        "text": "Map",
+        "image": "map"
+      },
+      {
+        "id": "oasis",
+        "text": "Oasis",
+        "image": "oasis"
+      },
+      {
+        "id": "north",
+        "text": "North",
+        "image": "north"
+      },
+      {
+        "id": "tent",
+        "text": "Tent",
+        "image": "tent"
+      },
+      {
+        "id": "fur",
+        "text": "Fur",
+        "image": "fur"
+      },
+      {
+        "id": "ice",
+        "text": "Ice",
+        "image": "ice"
+      },
+      {
+        "id": "sunglasses",
+        "text": "Sunglasses",
+        "image": "sunglasses"
+      },
+      {
+        "id": "button",
+        "text": "Button",
+        "image": "button"
+      },
+      {
+        "id": "snake",
+        "text": "Snake",
+        "image": "snake"
+      },
+      {
+        "id": "coat",
+        "text": "Coat",
+        "image": "coat"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "desert",
+        "card2": "sand"
+      },
+      {
+        "card1": "desert",
+        "card2": "cactus"
+      },
+      {
+        "card1": "desert",
+        "card2": "camel"
+      },
+      {
+        "card1": "sand",
+        "card2": "cactus"
+      },
+      {
+        "card1": "sand",
+        "card2": "camel"
+      },
+      {
+        "card1": "cactus",
+        "card2": "camel"
+      },
+      {
+        "card1": "sand",
+        "card2": "oasis"
+      },
+      {
+        "card1": "cactus",
+        "card2": "oasis"
+      },
+      {
+        "card1": "camel",
+        "card2": "oasis"
+      },
+      {
+        "card1": "oasis",
+        "card2": "water"
+      },
+      {
+        "card1": "water",
+        "card2": "bottle"
+      },
+      {
+        "card1": "bottle",
+        "card2": "map"
+      },
+      {
+        "card1": "map",
+        "card2": "compass"
+      },
+      {
+        "card1": "compass",
+        "card2": "north"
+      },
+      {
+        "card1": "north",
+        "card2": "polar_bear"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

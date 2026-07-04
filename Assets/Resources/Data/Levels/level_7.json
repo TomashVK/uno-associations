@@ -1,0 +1,138 @@
+[
+  {
+    "activeCard": "breakfast",
+    "hand": ["chair", "bacon", "fork", "egg", "toast", "spoon"],
+    "deck": ["plate", "table", "napkin", "juice", "cereal", "milk"],
+    "maxMoves": 10,
+    "optimalMoves": 10,
+    "cards": [
+      {
+        "id": "breakfast",
+        "text": "Breakfast",
+        "image": "breakfast"
+      },
+      {
+        "id": "chair",
+        "text": "Chair",
+        "image": "chair"
+      },
+      {
+        "id": "bacon",
+        "text": "Bacon",
+        "image": "bacon"
+      },
+      {
+        "id": "fork",
+        "text": "Fork",
+        "image": "fork"
+      },
+      {
+        "id": "egg",
+        "text": "Egg",
+        "image": "egg"
+      },
+      {
+        "id": "toast",
+        "text": "Toast",
+        "image": "toast"
+      },
+      {
+        "id": "spoon",
+        "text": "Spoon",
+        "image": "spoon"
+      },
+      {
+        "id": "plate",
+        "text": "Plate",
+        "image": "plate"
+      },
+      {
+        "id": "table",
+        "text": "Table",
+        "image": "table"
+      },
+      {
+        "id": "napkin",
+        "text": "Napkin",
+        "image": "napkin"
+      },
+      {
+        "id": "juice",
+        "text": "Juice",
+        "image": "juice"
+      },
+      {
+        "id": "cereal",
+        "text": "Cereal",
+        "image": "cereal"
+      },
+      {
+        "id": "milk",
+        "text": "Milk",
+        "image": "milk"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "breakfast",
+        "card2": "egg"
+      },
+      {
+        "card1": "breakfast",
+        "card2": "bacon"
+      },
+      {
+        "card1": "breakfast",
+        "card2": "toast"
+      },
+      {
+        "card1": "egg",
+        "card2": "bacon"
+      },
+      {
+        "card1": "egg",
+        "card2": "toast"
+      },
+      {
+        "card1": "bacon",
+        "card2": "toast"
+      },
+      {
+        "card1": "egg",
+        "card2": "plate"
+      },
+      {
+        "card1": "toast",
+        "card2": "plate"
+      },
+      {
+        "card1": "plate",
+        "card2": "fork"
+      },
+      {
+        "card1": "fork",
+        "card2": "spoon"
+      },
+      {
+        "card1": "spoon",
+        "card2": "table"
+      },
+      {
+        "card1": "table",
+        "card2": "chair"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

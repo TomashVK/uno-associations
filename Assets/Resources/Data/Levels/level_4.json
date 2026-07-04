@@ -1,0 +1,89 @@
+[
+  {
+    "activeCard": "farm",
+    "hand": ["bread", "cheese", "cow", "milk"],
+    "deck": ["oven", "wheat", "pizza"],
+    "maxMoves": 10,
+    "optimalMoves": 6,
+    "cards": [
+      {
+        "id": "farm",
+        "text": "Farm",
+        "image": "farm"
+      },
+      {
+        "id": "bread",
+        "text": "Bread",
+        "image": "bread"
+      },
+      {
+        "id": "cheese",
+        "text": "Cheese",
+        "image": "cheese"
+      },
+      {
+        "id": "cow",
+        "text": "Cow",
+        "image": "cow"
+      },
+      {
+        "id": "milk",
+        "text": "Milk",
+        "image": "milk"
+      },
+      {
+        "id": "oven",
+        "text": "Oven",
+        "image": "oven"
+      },
+      {
+        "id": "wheat",
+        "text": "Wheat",
+        "image": "wheat"
+      },
+      {
+        "id": "pizza",
+        "text": "Pizza",
+        "image": "pizza"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "farm",
+        "card2": "cow"
+      },
+      {
+        "card1": "cow",
+        "card2": "milk"
+      },
+      {
+        "card1": "milk",
+        "card2": "cheese"
+      },
+      {
+        "card1": "cheese",
+        "card2": "oven"
+      },
+      {
+        "card1": "oven",
+        "card2": "bread"
+      },
+      {
+        "card1": "cheese",
+        "card2": "bread"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

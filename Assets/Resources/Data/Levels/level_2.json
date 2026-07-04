@@ -1,12 +1,57 @@
 [
   {
-    "activeCard": "squirrel",
-    "hand": ["seed", "wolf", "grass"],
-    "deck": ["tree", "leaf", "mouse", "bush", "soil"],
-    "maxMoves": 15,
-    "optimalMoves": 5,
-    "optimalPath": ["squirrel", "wolf", "tree", "seed", "grass"],
-    "pathDescription": "squirrel → wolf → [draw tree] → tree → seed → grass",
-    "worstPath": "squirrel → wolf → mouse → soil → bush → leaf → grass → tree → seed  (5 draws, 15 moves)"
+    "activeCard": "tree",
+    "hand": ["egg", "nest"],
+    "deck": ["bird"],
+    "maxMoves": 5,
+    "optimalMoves": 4,
+    "cards": [
+      {
+        "id": "tree",
+        "text": "Tree",
+        "image": "tree"
+      },
+      {
+        "id": "egg",
+        "text": "Egg",
+        "image": "egg"
+      },
+      {
+        "id": "nest",
+        "text": "Nest",
+        "image": "nest"
+      },
+      {
+        "id": "bird",
+        "text": "Bird",
+        "image": "bird"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "tree",
+        "card2": "nest"
+      },
+      {
+        "card1": "nest",
+        "card2": "bird"
+      },
+      {
+        "card1": "bird",
+        "card2": "egg"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 1,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 1,
+        "cost": 25
+      }
+    ]
   }
 ]

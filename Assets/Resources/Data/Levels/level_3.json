@@ -1,0 +1,76 @@
+[
+  {
+    "activeCard": "ocean",
+    "hand": ["pearl", "beach", "shell"],
+    "deck": ["sand", "gold", "castle"],
+    "maxMoves": 5,
+    "optimalMoves": 5,
+    "cards": [
+      {
+        "id": "ocean",
+        "text": "Ocean",
+        "image": "ocean"
+      },
+      {
+        "id": "pearl",
+        "text": "Pearl",
+        "image": "pearl"
+      },
+      {
+        "id": "beach",
+        "text": "Beach",
+        "image": "beach"
+      },
+      {
+        "id": "shell",
+        "text": "Shell",
+        "image": "shell"
+      },
+      {
+        "id": "sand",
+        "text": "Sand",
+        "image": "sand"
+      },
+      {
+        "id": "gold",
+        "text": "Gold",
+        "image": "gold"
+      },
+      {
+        "id": "castle",
+        "text": "Castle",
+        "image": "castle"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "ocean",
+        "card2": "beach"
+      },
+      {
+        "card1": "beach",
+        "card2": "sand"
+      },
+      {
+        "card1": "sand",
+        "card2": "shell"
+      },
+      {
+        "card1": "shell",
+        "card2": "pearl"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 1,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 1,
+        "cost": 25
+      }
+    ]
+  }
+]

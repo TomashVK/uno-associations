@@ -12,106 +12,45 @@
 - **DOTween** for animations. **Unity Splines** (SplineContainer, BezierKnot) for hand card layout.
 - **New Input System** via Canvas `EventSystem` (`IPointerDownHandler`, `IDragHandler`, `IPointerUpHandler`) — never poll `Input` directly.
 - **TextMesh Pro** (`TMP_Text`) for all in-game text.
-- **JsonUtility** cannot deserialize bare JSON arrays. Always wrap: `{"items":[...]}` using the `LoadArray<TWrapper,TItem>` helper in `LevelLoader`.
+- **JsonUtility** cannot deserialize bare JSON arrays. Levels are wrapped as `{"items":[...]}` in `LevelLoader.LoadLevels`.
 - When a constructor or method parameter name clashes with a field name, use `this.fieldName = paramName`.
 - `ICardDrop.OnCardDrop` returns `bool` — `true` = accepted, `false` = snap back.
 
 ---
 
-## Adding a Card
+## Level Data Pipeline
 
-1. **`Assets/Resources/Data/cards.json`** — add one entry:
-   ```json
-   {"id":"penguin", "text":"Penguin", "image":"penguin", "category":"wildlife",
-    "tags":["aquatic", "prey", "egg-layer", "winter"]}
-   ```
-   - `id` must be unique and lowercase. Everything else references cards by this string.
-   - `image` is the sprite name for card artwork.
-   - `tags` drive auto-connection. Pick from existing tags in `tags.json`.
+Levels are authored in **`Assets/Resources/db.xlsx`** (two sheets: `Levels` and `Connections`) and compiled into self-contained `Assets/Resources/Data/Levels/level_N.json` files by **`import_levels.py`** (run from the project root: `python3 import_levels.py`). There is no shared `cards.json` / `tags.json` / `tag-rules.json` / `connections.json` anymore — each level JSON embeds its own card list and its own valid connection pairs, and the game only ever reads within the currently loaded level.
 
-2. **Tags do the work automatically.** The new card connects to any other card that matches a tag pair in `tag-rules.json`. No C# changes needed.
+### Editing levels
+1. Edit `db.xlsx` — `Levels` sheet row: `Level, Difficulty, Moves, Start_Card, Open_Cards_Count, Open_Cards, Deck_Cards_Count, Deck_Cards, Minimum_Moves_Required, ...`. `Connections` sheet row (same `Level` number): `Connection_Pairs_Count, Connectable_Word_Pairs` (`"A <> B | C <> D | ..."`).
+2. Run `python3 import_levels.py` from the project root. It regenerates every `level_N.json` from the sheet — always re-run it after editing `db.xlsx`, don't hand-edit the generated JSON.
+3. Card names become lowercase ids (`Emergency_Room` → `emergency_room`); display text keeps underscores as spaces (`Emergency Room`); `image` defaults to the id, so sprites must be named to match.
 
-3. **`Assets/Resources/Data/connections.json`** — add explicit entries only for associations that tags can't express (cultural knowledge like "cats drink milk") or to override an auto-generated strength.
-
-4. **If you use a new tag** (one not in `tags.json`):
-   - Add the tag entry to `tags.json` with `"hasRule": false`.
-   - If you also add a rule for it in `tag-rules.json`, set `"hasRule": true`.
-
-No C# file changes are needed to add a card.
-
----
-
-## Editing Cards and Tags
-
-### Changing a card's properties
-Edit the entry in `cards.json`. Changing `tags` immediately affects which auto-connections are generated at runtime.
-
-### Adding a tag rule
-Add one line to `tag-rules.json`:
-```json
-{"tag1": "egg-layer", "tag2": "egg-layer-product", "strength": 0.85}
-```
-Then update `hasRule` to `true` for both tags in `tags.json`.
-
-Rules are symmetric — `tag1 ↔ tag2` covers both directions automatically.
-
-### Adding or overriding an explicit connection
-Add to `connections.json`:
-```json
-{"card1": "bear", "card2": "salmon", "strength": 0.90}
-```
-Explicit entries override any auto-generated strength for that pair.
-
-### Strength values
-- `0.90–1.00` — strong, obvious associations (cow↔milk, bee↔honey)
-- `0.70–0.89` — clear associations (horse↔carrot, forest↔bear)
-- `0.55–0.69` — weaker or non-obvious (worm↔apple, wind↔bird)
-
----
-
-## Creating Levels
-
-### File location
-`Assets/Resources/Data/Levels/level_N.json` where N is the next integer. The loader reads `level_1`, `level_2`, … in order until one is missing.
-
-### File format
-Each level file is a **JSON array of variants**. One variant is picked at random when the level loads. On restart, the player may get a different variant.
-
-All variants in one file should use the **same card pool** (same cards, different hand/deck split).
-
+### Level JSON format (generated, one file per level)
 ```json
 [
   {
-    "activeCard":        "cat",
-    "hand":              ["bee", "rain", "fish"],
-    "deck":              ["river", "flower", "cloud", "sun", "honey"],
-    "threeStarMaxDraws": 2,
-    "twoStarMaxDraws":   4
-  },
-  {
-    "activeCard":        "cat",
-    "hand":              ["flower", "fish", "bee"],
-    "deck":              ["river", "rain", "cloud", "sun", "honey"],
-    "threeStarMaxDraws": 2,
-    "twoStarMaxDraws":   4
+    "activeCard": "pond",
+    "hand": ["fish", "cat", "milk"],
+    "deck": [],
+    "maxMoves": 5,
+    "optimalMoves": 3,
+    "cards": [
+      {"id": "pond", "text": "Pond", "image": "pond"},
+      {"id": "fish", "text": "Fish", "image": "fish"},
+      {"id": "cat", "text": "Cat", "image": "cat"},
+      {"id": "milk", "text": "Milk", "image": "milk"}
+    ],
+    "connections": [
+      {"card1": "pond", "card2": "fish"},
+      {"card1": "fish", "card2": "cat"},
+      {"card1": "cat", "card2": "milk"}
+    ]
   }
 ]
 ```
-
-### Level design rules
-
-1. **Minimum 1 draw required.** The player must draw at least one card to win. A level solvable with only starting hand cards is too easy and doesn't teach associations.
-
-2. **Hand must not be in solve order.** If the optimal chain is A→B→C, the hand should not contain them in that sequence. The player should have to figure out the order.
-
-3. **Deck larger than hand.** Aim for 4–6 deck cards and 2–4 hand cards.
-
-4. **Star thresholds match the optimal draw count.** If the fastest possible win needs 2 draws, set `threeStarMaxDraws: 2`. Don't set it to 0 when 2 draws are unavoidable.
-
-5. **Deck order matters.** The deck is drawn top-to-bottom (index 0 first). Place cards in the order the player should naturally draw them when following the optimal path.
-
-6. **Verify every variant by tracing the chain.** Step through the full optimal path and confirm it reaches an empty hand. Also trace the most tempting wrong first move to confirm it either recovers or loses gracefully.
-
-7. **Design at least one trap (recommended).** A trap is a tempting first move that strands a card permanently. Good traps teach the player something when they fall into them.
-
-8. **Variants may use a different active card.** All variants share the same card pool, but each variant can start from a different card in that pool. The active card counts as one of the total cards, so swapping it changes the puzzle feel without changing the card set.
+- `cards` — every card used by this level (`activeCard` + `hand` + `deck`), with the id/text/image the game needs to render it. Not shared with other levels.
+- `connections` — every valid card-to-card pair for this level only. `ActiveCardSlot.OnCardDrop` checks this via a per-level `ConnectionGraph` built fresh in `GameController.LoadLevel`.
+- A level file is still a **JSON array of variants** — the loader picks one at random on load/restart — but `import_levels.py` currently emits exactly one variant per level (one row per level in the sheet). Hand-added extra variants are fine as long as they reuse the same `cards`/`connections`.
+- `maxMoves` / `optimalMoves` drive `MoveCounter` and star scoring (`HudStarDisplay`) directly — no multiplier is applied in code.

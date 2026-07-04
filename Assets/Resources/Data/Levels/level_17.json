@@ -1,0 +1,224 @@
+[
+  {
+    "activeCard": "winter",
+    "hand": ["brush", "hat", "snow", "canvas", "coat", "ice", "head", "skates"],
+    "deck": ["cold", "scarf", "hair", "paint", "lens", "window", "glove", "museum", "boots", "camera", "art", "glass", "frame", "picture"],
+    "maxMoves": 20,
+    "optimalMoves": 16,
+    "cards": [
+      {
+        "id": "winter",
+        "text": "Winter",
+        "image": "winter"
+      },
+      {
+        "id": "brush",
+        "text": "Brush",
+        "image": "brush"
+      },
+      {
+        "id": "hat",
+        "text": "Hat",
+        "image": "hat"
+      },
+      {
+        "id": "snow",
+        "text": "Snow",
+        "image": "snow"
+      },
+      {
+        "id": "canvas",
+        "text": "Canvas",
+        "image": "canvas"
+      },
+      {
+        "id": "coat",
+        "text": "Coat",
+        "image": "coat"
+      },
+      {
+        "id": "ice",
+        "text": "Ice",
+        "image": "ice"
+      },
+      {
+        "id": "head",
+        "text": "Head",
+        "image": "head"
+      },
+      {
+        "id": "skates",
+        "text": "Skates",
+        "image": "skates"
+      },
+      {
+        "id": "cold",
+        "text": "Cold",
+        "image": "cold"
+      },
+      {
+        "id": "scarf",
+        "text": "Scarf",
+        "image": "scarf"
+      },
+      {
+        "id": "hair",
+        "text": "Hair",
+        "image": "hair"
+      },
+      {
+        "id": "paint",
+        "text": "Paint",
+        "image": "paint"
+      },
+      {
+        "id": "lens",
+        "text": "Lens",
+        "image": "lens"
+      },
+      {
+        "id": "window",
+        "text": "Window",
+        "image": "window"
+      },
+      {
+        "id": "glove",
+        "text": "Glove",
+        "image": "glove"
+      },
+      {
+        "id": "museum",
+        "text": "Museum",
+        "image": "museum"
+      },
+      {
+        "id": "boots",
+        "text": "Boots",
+        "image": "boots"
+      },
+      {
+        "id": "camera",
+        "text": "Camera",
+        "image": "camera"
+      },
+      {
+        "id": "art",
+        "text": "Art",
+        "image": "art"
+      },
+      {
+        "id": "glass",
+        "text": "Glass",
+        "image": "glass"
+      },
+      {
+        "id": "frame",
+        "text": "Frame",
+        "image": "frame"
+      },
+      {
+        "id": "picture",
+        "text": "Picture",
+        "image": "picture"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "winter",
+        "card2": "snow"
+      },
+      {
+        "card1": "winter",
+        "card2": "ice"
+      },
+      {
+        "card1": "winter",
+        "card2": "skates"
+      },
+      {
+        "card1": "snow",
+        "card2": "ice"
+      },
+      {
+        "card1": "snow",
+        "card2": "skates"
+      },
+      {
+        "card1": "ice",
+        "card2": "skates"
+      },
+      {
+        "card1": "snow",
+        "card2": "cold"
+      },
+      {
+        "card1": "ice",
+        "card2": "cold"
+      },
+      {
+        "card1": "skates",
+        "card2": "cold"
+      },
+      {
+        "card1": "cold",
+        "card2": "coat"
+      },
+      {
+        "card1": "coat",
+        "card2": "scarf"
+      },
+      {
+        "card1": "scarf",
+        "card2": "hat"
+      },
+      {
+        "card1": "hat",
+        "card2": "head"
+      },
+      {
+        "card1": "head",
+        "card2": "hair"
+      },
+      {
+        "card1": "hair",
+        "card2": "brush"
+      },
+      {
+        "card1": "brush",
+        "card2": "paint"
+      },
+      {
+        "card1": "paint",
+        "card2": "canvas"
+      },
+      {
+        "card1": "canvas",
+        "card2": "museum"
+      },
+      {
+        "card1": "museum",
+        "card2": "art"
+      },
+      {
+        "card1": "art",
+        "card2": "frame"
+      },
+      {
+        "card1": "frame",
+        "card2": "picture"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

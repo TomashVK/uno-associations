@@ -31,8 +31,6 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         LevelLoader.LoadAll();
-        graph = new ConnectionGraph();
-        graph.Build(LevelLoader.Cards, LevelLoader.TagRules, LevelLoader.Connections);
 
         SaveGameData save = SaveService.Instance.Data;
         currentLevelId = save.inProgressLevel?.levelId ?? save.currentLevelId;
@@ -45,6 +43,7 @@ public class GameController : MonoBehaviour
         HandManager.CardLeftHand += CheckWin;
         ActiveCardSlot.CardPlayed += CheckWin;
         MoveCounter.MovesChanged += RefreshMoveHUD;
+        MoveCounter.MovesExhausted += ShowOutOfMovesSettings;
 
         RevealPile.CardDrawnToRevealPile += CaptureState;
         HandDropZone.CardTakenToHand += CaptureState;
@@ -62,6 +61,7 @@ public class GameController : MonoBehaviour
         HandManager.CardLeftHand -= CheckWin;
         ActiveCardSlot.CardPlayed -= CheckWin;
         MoveCounter.MovesChanged -= RefreshMoveHUD;
+        MoveCounter.MovesExhausted -= ShowOutOfMovesSettings;
 
         RevealPile.CardDrawnToRevealPile -= CaptureState;
         HandDropZone.CardTakenToHand -= CaptureState;
@@ -84,12 +84,15 @@ public class GameController : MonoBehaviour
             return;
         }
 
+        graph = new ConnectionGraph();
+        graph.Build(level.connections);
+
         moveCounter.Init(level.maxMoves);
         if (hudStarDisplay != null) hudStarDisplay.Init(level.maxMoves, level.optimalMoves);
         RefreshMoveHUD();
 
         foreach (ConsumableButton button in consumableButtons)
-            if (button != null) button.Init(level.GetFreeUses(button.ConsumableId));
+            if (button != null) button.Init(level.GetFreeUses(button.ConsumableId), level.GetCost(button.ConsumableId));
 
         if (winPanel != null) winPanel.SetActive(false);
 
@@ -214,9 +217,9 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private static CardData MakeCardData(string cardId)
+    private CardData MakeCardData(string cardId)
     {
-        CardDefinition def = LevelLoader.GetCard(cardId);
+        CardDefinition def = level.GetCard(cardId);
         return new CardData { cardName = def.text, gameId = def.id };
     }
 
@@ -239,6 +242,16 @@ public class GameController : MonoBehaviour
         if (moveCountText != null && moveCounter != null)
             moveCountText.text = $"{moveCounter.MovesRemaining}";
         RefreshResetDeckVisual();
+    }
+
+    private void ShowOutOfMovesSettings()
+    {
+        // MovesExhausted and the win check both fire off the same CardPlayed event, in an
+        // order that depends on component subscription order — so levelWon isn't reliably
+        // set yet here. Check the actual win condition directly instead of relying on it.
+        if (levelWon || handManager.CardCount == 0) return;
+        SettingsPanel panel = FindObjectOfType<SettingsPanel>(true);
+        if (panel != null) panel.ShowOutOfMoves();
     }
 
     public void RestartLevel()

@@ -1,0 +1,233 @@
+[
+  {
+    "activeCard": "bakery",
+    "hand": ["cow", "chair", "cake", "flour", "toast", "bread", "cookie", "farm"],
+    "deck": ["oven", "wheat", "milk", "butter", "table", "cream", "spoon", "apple", "plate", "sugar", "fork", "pie", "jam", "cinnamon", "candy"],
+    "maxMoves": 20,
+    "optimalMoves": 18,
+    "cards": [
+      {
+        "id": "bakery",
+        "text": "Bakery",
+        "image": "bakery"
+      },
+      {
+        "id": "cow",
+        "text": "Cow",
+        "image": "cow"
+      },
+      {
+        "id": "chair",
+        "text": "Chair",
+        "image": "chair"
+      },
+      {
+        "id": "cake",
+        "text": "Cake",
+        "image": "cake"
+      },
+      {
+        "id": "flour",
+        "text": "Flour",
+        "image": "flour"
+      },
+      {
+        "id": "toast",
+        "text": "Toast",
+        "image": "toast"
+      },
+      {
+        "id": "bread",
+        "text": "Bread",
+        "image": "bread"
+      },
+      {
+        "id": "cookie",
+        "text": "Cookie",
+        "image": "cookie"
+      },
+      {
+        "id": "farm",
+        "text": "Farm",
+        "image": "farm"
+      },
+      {
+        "id": "oven",
+        "text": "Oven",
+        "image": "oven"
+      },
+      {
+        "id": "wheat",
+        "text": "Wheat",
+        "image": "wheat"
+      },
+      {
+        "id": "milk",
+        "text": "Milk",
+        "image": "milk"
+      },
+      {
+        "id": "butter",
+        "text": "Butter",
+        "image": "butter"
+      },
+      {
+        "id": "table",
+        "text": "Table",
+        "image": "table"
+      },
+      {
+        "id": "cream",
+        "text": "Cream",
+        "image": "cream"
+      },
+      {
+        "id": "spoon",
+        "text": "Spoon",
+        "image": "spoon"
+      },
+      {
+        "id": "apple",
+        "text": "Apple",
+        "image": "apple"
+      },
+      {
+        "id": "plate",
+        "text": "Plate",
+        "image": "plate"
+      },
+      {
+        "id": "sugar",
+        "text": "Sugar",
+        "image": "sugar"
+      },
+      {
+        "id": "fork",
+        "text": "Fork",
+        "image": "fork"
+      },
+      {
+        "id": "pie",
+        "text": "Pie",
+        "image": "pie"
+      },
+      {
+        "id": "jam",
+        "text": "Jam",
+        "image": "jam"
+      },
+      {
+        "id": "cinnamon",
+        "text": "Cinnamon",
+        "image": "cinnamon"
+      },
+      {
+        "id": "candy",
+        "text": "Candy",
+        "image": "candy"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "bakery",
+        "card2": "bread"
+      },
+      {
+        "card1": "bakery",
+        "card2": "cake"
+      },
+      {
+        "card1": "bakery",
+        "card2": "cookie"
+      },
+      {
+        "card1": "bread",
+        "card2": "cake"
+      },
+      {
+        "card1": "bread",
+        "card2": "cookie"
+      },
+      {
+        "card1": "cake",
+        "card2": "cookie"
+      },
+      {
+        "card1": "bread",
+        "card2": "oven"
+      },
+      {
+        "card1": "cake",
+        "card2": "oven"
+      },
+      {
+        "card1": "cookie",
+        "card2": "oven"
+      },
+      {
+        "card1": "oven",
+        "card2": "flour"
+      },
+      {
+        "card1": "flour",
+        "card2": "wheat"
+      },
+      {
+        "card1": "wheat",
+        "card2": "farm"
+      },
+      {
+        "card1": "farm",
+        "card2": "cow"
+      },
+      {
+        "card1": "cow",
+        "card2": "milk"
+      },
+      {
+        "card1": "milk",
+        "card2": "butter"
+      },
+      {
+        "card1": "butter",
+        "card2": "toast"
+      },
+      {
+        "card1": "toast",
+        "card2": "table"
+      },
+      {
+        "card1": "table",
+        "card2": "chair"
+      },
+      {
+        "card1": "apple",
+        "card2": "pie"
+      },
+      {
+        "card1": "pie",
+        "card2": "cinnamon"
+      },
+      {
+        "card1": "cinnamon",
+        "card2": "sugar"
+      },
+      {
+        "card1": "sugar",
+        "card2": "candy"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

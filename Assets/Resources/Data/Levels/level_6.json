@@ -1,0 +1,108 @@
+[
+  {
+    "activeCard": "kitchen",
+    "hand": ["plate", "stove", "toast", "egg", "pan"],
+    "deck": ["butter", "bowl", "sandwich", "spoon", "bread"],
+    "maxMoves": 10,
+    "optimalMoves": 7,
+    "cards": [
+      {
+        "id": "kitchen",
+        "text": "Kitchen",
+        "image": "kitchen"
+      },
+      {
+        "id": "plate",
+        "text": "Plate",
+        "image": "plate"
+      },
+      {
+        "id": "stove",
+        "text": "Stove",
+        "image": "stove"
+      },
+      {
+        "id": "toast",
+        "text": "Toast",
+        "image": "toast"
+      },
+      {
+        "id": "egg",
+        "text": "Egg",
+        "image": "egg"
+      },
+      {
+        "id": "pan",
+        "text": "Pan",
+        "image": "pan"
+      },
+      {
+        "id": "butter",
+        "text": "Butter",
+        "image": "butter"
+      },
+      {
+        "id": "bowl",
+        "text": "Bowl",
+        "image": "bowl"
+      },
+      {
+        "id": "sandwich",
+        "text": "Sandwich",
+        "image": "sandwich"
+      },
+      {
+        "id": "spoon",
+        "text": "Spoon",
+        "image": "spoon"
+      },
+      {
+        "id": "bread",
+        "text": "Bread",
+        "image": "bread"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "kitchen",
+        "card2": "stove"
+      },
+      {
+        "card1": "stove",
+        "card2": "pan"
+      },
+      {
+        "card1": "pan",
+        "card2": "egg"
+      },
+      {
+        "card1": "egg",
+        "card2": "butter"
+      },
+      {
+        "card1": "butter",
+        "card2": "toast"
+      },
+      {
+        "card1": "toast",
+        "card2": "plate"
+      },
+      {
+        "card1": "bread",
+        "card2": "toast"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

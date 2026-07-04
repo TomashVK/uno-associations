@@ -1,0 +1,193 @@
+[
+  {
+    "activeCard": "airport",
+    "hand": ["food", "plane", "anchor", "runway", "plate", "boat", "pilot", "river"],
+    "deck": ["sky", "rain", "metal", "fridge", "coin", "fork", "ticket", "magnet", "luggage", "gate", "silver"],
+    "maxMoves": 20,
+    "optimalMoves": 16,
+    "cards": [
+      {
+        "id": "airport",
+        "text": "Airport",
+        "image": "airport"
+      },
+      {
+        "id": "food",
+        "text": "Food",
+        "image": "food"
+      },
+      {
+        "id": "plane",
+        "text": "Plane",
+        "image": "plane"
+      },
+      {
+        "id": "anchor",
+        "text": "Anchor",
+        "image": "anchor"
+      },
+      {
+        "id": "runway",
+        "text": "Runway",
+        "image": "runway"
+      },
+      {
+        "id": "plate",
+        "text": "Plate",
+        "image": "plate"
+      },
+      {
+        "id": "boat",
+        "text": "Boat",
+        "image": "boat"
+      },
+      {
+        "id": "pilot",
+        "text": "Pilot",
+        "image": "pilot"
+      },
+      {
+        "id": "river",
+        "text": "River",
+        "image": "river"
+      },
+      {
+        "id": "sky",
+        "text": "Sky",
+        "image": "sky"
+      },
+      {
+        "id": "rain",
+        "text": "Rain",
+        "image": "rain"
+      },
+      {
+        "id": "metal",
+        "text": "Metal",
+        "image": "metal"
+      },
+      {
+        "id": "fridge",
+        "text": "Fridge",
+        "image": "fridge"
+      },
+      {
+        "id": "coin",
+        "text": "Coin",
+        "image": "coin"
+      },
+      {
+        "id": "fork",
+        "text": "Fork",
+        "image": "fork"
+      },
+      {
+        "id": "ticket",
+        "text": "Ticket",
+        "image": "ticket"
+      },
+      {
+        "id": "magnet",
+        "text": "Magnet",
+        "image": "magnet"
+      },
+      {
+        "id": "luggage",
+        "text": "Luggage",
+        "image": "luggage"
+      },
+      {
+        "id": "gate",
+        "text": "Gate",
+        "image": "gate"
+      },
+      {
+        "id": "silver",
+        "text": "Silver",
+        "image": "silver"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "airport",
+        "card2": "plane"
+      },
+      {
+        "card1": "airport",
+        "card2": "pilot"
+      },
+      {
+        "card1": "airport",
+        "card2": "runway"
+      },
+      {
+        "card1": "plane",
+        "card2": "pilot"
+      },
+      {
+        "card1": "plane",
+        "card2": "runway"
+      },
+      {
+        "card1": "pilot",
+        "card2": "runway"
+      },
+      {
+        "card1": "plane",
+        "card2": "sky"
+      },
+      {
+        "card1": "pilot",
+        "card2": "sky"
+      },
+      {
+        "card1": "runway",
+        "card2": "sky"
+      },
+      {
+        "card1": "sky",
+        "card2": "rain"
+      },
+      {
+        "card1": "rain",
+        "card2": "river"
+      },
+      {
+        "card1": "river",
+        "card2": "boat"
+      },
+      {
+        "card1": "boat",
+        "card2": "anchor"
+      },
+      {
+        "card1": "anchor",
+        "card2": "metal"
+      },
+      {
+        "card1": "metal",
+        "card2": "fridge"
+      },
+      {
+        "card1": "fridge",
+        "card2": "food"
+      },
+      {
+        "card1": "food",
+        "card2": "plate"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

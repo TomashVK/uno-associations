@@ -1,0 +1,142 @@
+[
+  {
+    "activeCard": "school",
+    "hand": ["student", "pencil", "desk", "book", "homework", "notebook"],
+    "deck": ["paper", "classroom", "bell", "ruler", "chalk", "backpack"],
+    "maxMoves": 10,
+    "optimalMoves": 10,
+    "cards": [
+      {
+        "id": "school",
+        "text": "School",
+        "image": "school"
+      },
+      {
+        "id": "student",
+        "text": "Student",
+        "image": "student"
+      },
+      {
+        "id": "pencil",
+        "text": "Pencil",
+        "image": "pencil"
+      },
+      {
+        "id": "desk",
+        "text": "Desk",
+        "image": "desk"
+      },
+      {
+        "id": "book",
+        "text": "Book",
+        "image": "book"
+      },
+      {
+        "id": "homework",
+        "text": "Homework",
+        "image": "homework"
+      },
+      {
+        "id": "notebook",
+        "text": "Notebook",
+        "image": "notebook"
+      },
+      {
+        "id": "paper",
+        "text": "Paper",
+        "image": "paper"
+      },
+      {
+        "id": "classroom",
+        "text": "Classroom",
+        "image": "classroom"
+      },
+      {
+        "id": "bell",
+        "text": "Bell",
+        "image": "bell"
+      },
+      {
+        "id": "ruler",
+        "text": "Ruler",
+        "image": "ruler"
+      },
+      {
+        "id": "chalk",
+        "text": "Chalk",
+        "image": "chalk"
+      },
+      {
+        "id": "backpack",
+        "text": "Backpack",
+        "image": "backpack"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "school",
+        "card2": "book"
+      },
+      {
+        "card1": "school",
+        "card2": "notebook"
+      },
+      {
+        "card1": "school",
+        "card2": "pencil"
+      },
+      {
+        "card1": "book",
+        "card2": "notebook"
+      },
+      {
+        "card1": "book",
+        "card2": "pencil"
+      },
+      {
+        "card1": "notebook",
+        "card2": "pencil"
+      },
+      {
+        "card1": "book",
+        "card2": "paper"
+      },
+      {
+        "card1": "notebook",
+        "card2": "paper"
+      },
+      {
+        "card1": "pencil",
+        "card2": "paper"
+      },
+      {
+        "card1": "paper",
+        "card2": "homework"
+      },
+      {
+        "card1": "homework",
+        "card2": "desk"
+      },
+      {
+        "card1": "desk",
+        "card2": "classroom"
+      },
+      {
+        "card1": "classroom",
+        "card2": "student"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

@@ -9,6 +9,7 @@ public class SettingsPanel : MonoBehaviour
     [SerializeField] private Toggle vibrationToggle;
     [SerializeField] private GameObject restartLevelButton;
     [SerializeField] private GameObject goToLobbyButton;
+    [SerializeField] private GameObject closeButton;
 
     private void OnEnable()
     {
@@ -28,7 +29,19 @@ public class SettingsPanel : MonoBehaviour
         vibrationToggle.onValueChanged.RemoveListener(OnVibrationChanged);
     }
 
-    public void Show() => gameObject.SetActive(true);
+    public void Show()
+    {
+        SetSecondaryControlsActive(true);
+        gameObject.SetActive(true);
+    }
+
+    // Out of moves: there's nothing left to resume to, so only Restart / Lobby make sense.
+    public void ShowOutOfMoves()
+    {
+        SetSecondaryControlsActive(false);
+        gameObject.SetActive(true);
+    }
+
     public void Hide() => gameObject.SetActive(false);
 
     public void OnRestartLevel()
@@ -42,6 +55,14 @@ public class SettingsPanel : MonoBehaviour
     {
         Hide();
         SceneManager.LoadScene("LobbyScene");
+    }
+
+    private void SetSecondaryControlsActive(bool active)
+    {
+        soundToggle.gameObject.SetActive(active);
+        musicToggle.gameObject.SetActive(active);
+        vibrationToggle.gameObject.SetActive(active);
+        if (closeButton != null) closeButton.SetActive(active);
     }
 
     private void OnSoundChanged(bool value) => GameSettings.SoundEnabled = value;

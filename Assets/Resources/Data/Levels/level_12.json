@@ -1,0 +1,184 @@
+[
+  {
+    "activeCard": "garden",
+    "hand": ["chair", "hive", "flower", "spoon", "butterfly", "honey", "jar", "bee"],
+    "deck": ["nectar", "table", "seed", "kitchen", "water", "tree", "soup", "soil", "wood", "bowl"],
+    "maxMoves": 15,
+    "optimalMoves": 12,
+    "cards": [
+      {
+        "id": "garden",
+        "text": "Garden",
+        "image": "garden"
+      },
+      {
+        "id": "chair",
+        "text": "Chair",
+        "image": "chair"
+      },
+      {
+        "id": "hive",
+        "text": "Hive",
+        "image": "hive"
+      },
+      {
+        "id": "flower",
+        "text": "Flower",
+        "image": "flower"
+      },
+      {
+        "id": "spoon",
+        "text": "Spoon",
+        "image": "spoon"
+      },
+      {
+        "id": "butterfly",
+        "text": "Butterfly",
+        "image": "butterfly"
+      },
+      {
+        "id": "honey",
+        "text": "Honey",
+        "image": "honey"
+      },
+      {
+        "id": "jar",
+        "text": "Jar",
+        "image": "jar"
+      },
+      {
+        "id": "bee",
+        "text": "Bee",
+        "image": "bee"
+      },
+      {
+        "id": "nectar",
+        "text": "Nectar",
+        "image": "nectar"
+      },
+      {
+        "id": "table",
+        "text": "Table",
+        "image": "table"
+      },
+      {
+        "id": "seed",
+        "text": "Seed",
+        "image": "seed"
+      },
+      {
+        "id": "kitchen",
+        "text": "Kitchen",
+        "image": "kitchen"
+      },
+      {
+        "id": "water",
+        "text": "Water",
+        "image": "water"
+      },
+      {
+        "id": "tree",
+        "text": "Tree",
+        "image": "tree"
+      },
+      {
+        "id": "soup",
+        "text": "Soup",
+        "image": "soup"
+      },
+      {
+        "id": "soil",
+        "text": "Soil",
+        "image": "soil"
+      },
+      {
+        "id": "wood",
+        "text": "Wood",
+        "image": "wood"
+      },
+      {
+        "id": "bowl",
+        "text": "Bowl",
+        "image": "bowl"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "garden",
+        "card2": "flower"
+      },
+      {
+        "card1": "garden",
+        "card2": "bee"
+      },
+      {
+        "card1": "garden",
+        "card2": "butterfly"
+      },
+      {
+        "card1": "flower",
+        "card2": "bee"
+      },
+      {
+        "card1": "flower",
+        "card2": "butterfly"
+      },
+      {
+        "card1": "bee",
+        "card2": "butterfly"
+      },
+      {
+        "card1": "flower",
+        "card2": "nectar"
+      },
+      {
+        "card1": "bee",
+        "card2": "nectar"
+      },
+      {
+        "card1": "butterfly",
+        "card2": "nectar"
+      },
+      {
+        "card1": "nectar",
+        "card2": "hive"
+      },
+      {
+        "card1": "hive",
+        "card2": "honey"
+      },
+      {
+        "card1": "honey",
+        "card2": "jar"
+      },
+      {
+        "card1": "jar",
+        "card2": "spoon"
+      },
+      {
+        "card1": "spoon",
+        "card2": "table"
+      },
+      {
+        "card1": "table",
+        "card2": "chair"
+      },
+      {
+        "card1": "spoon",
+        "card2": "kitchen"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

@@ -1406,7 +1406,8 @@ MonoBehaviour:
   musicToggle: {fileID: 8094353936634547471}
   vibrationToggle: {fileID: 9128582688104785369}
   restartLevelButton: {fileID: 6791288163262749785}
-  goToLobbyButton: {fileID: 0}
+  goToLobbyButton: {fileID: 4340543110307503974}
+  closeButton: {fileID: 6518889214333690670}
 --- !u!223 &1454509040836314521
 Canvas:
   m_ObjectHideFlags: 0

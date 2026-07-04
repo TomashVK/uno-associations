@@ -1,0 +1,161 @@
+[
+  {
+    "activeCard": "rain",
+    "hand": ["bridge", "mud", "umbrella", "car", "boots", "puddle", "raincoat"],
+    "deck": ["wet", "road", "anchor", "coat", "cloud", "boat", "thunder", "hat"],
+    "maxMoves": 15,
+    "optimalMoves": 11,
+    "cards": [
+      {
+        "id": "rain",
+        "text": "Rain",
+        "image": "rain"
+      },
+      {
+        "id": "bridge",
+        "text": "Bridge",
+        "image": "bridge"
+      },
+      {
+        "id": "mud",
+        "text": "Mud",
+        "image": "mud"
+      },
+      {
+        "id": "umbrella",
+        "text": "Umbrella",
+        "image": "umbrella"
+      },
+      {
+        "id": "car",
+        "text": "Car",
+        "image": "car"
+      },
+      {
+        "id": "boots",
+        "text": "Boots",
+        "image": "boots"
+      },
+      {
+        "id": "puddle",
+        "text": "Puddle",
+        "image": "puddle"
+      },
+      {
+        "id": "raincoat",
+        "text": "Raincoat",
+        "image": "raincoat"
+      },
+      {
+        "id": "wet",
+        "text": "Wet",
+        "image": "wet"
+      },
+      {
+        "id": "road",
+        "text": "Road",
+        "image": "road"
+      },
+      {
+        "id": "anchor",
+        "text": "Anchor",
+        "image": "anchor"
+      },
+      {
+        "id": "coat",
+        "text": "Coat",
+        "image": "coat"
+      },
+      {
+        "id": "cloud",
+        "text": "Cloud",
+        "image": "cloud"
+      },
+      {
+        "id": "boat",
+        "text": "Boat",
+        "image": "boat"
+      },
+      {
+        "id": "thunder",
+        "text": "Thunder",
+        "image": "thunder"
+      },
+      {
+        "id": "hat",
+        "text": "Hat",
+        "image": "hat"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "rain",
+        "card2": "umbrella"
+      },
+      {
+        "card1": "rain",
+        "card2": "raincoat"
+      },
+      {
+        "card1": "rain",
+        "card2": "boots"
+      },
+      {
+        "card1": "umbrella",
+        "card2": "raincoat"
+      },
+      {
+        "card1": "umbrella",
+        "card2": "boots"
+      },
+      {
+        "card1": "raincoat",
+        "card2": "boots"
+      },
+      {
+        "card1": "umbrella",
+        "card2": "wet"
+      },
+      {
+        "card1": "raincoat",
+        "card2": "wet"
+      },
+      {
+        "card1": "boots",
+        "card2": "wet"
+      },
+      {
+        "card1": "wet",
+        "card2": "puddle"
+      },
+      {
+        "card1": "puddle",
+        "card2": "mud"
+      },
+      {
+        "card1": "mud",
+        "card2": "car"
+      },
+      {
+        "card1": "car",
+        "card2": "road"
+      },
+      {
+        "card1": "road",
+        "card2": "bridge"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

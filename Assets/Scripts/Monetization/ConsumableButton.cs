@@ -9,7 +9,6 @@ public class ConsumableButton : MonoBehaviour, IPointerClickHandler
     public enum ConsumptionType { FreeUse, Coins, Ad }
 
     [SerializeField] private string consumableId;
-    [SerializeField] private int coinCost;
     [SerializeField] private TMP_Text badgeText;
     [SerializeField] private GameObject badgeContainer;
     [SerializeField] private GameObject adIcon;
@@ -26,12 +25,14 @@ public class ConsumableButton : MonoBehaviour, IPointerClickHandler
     public ConsumptionType LastConsumptionType { get; private set; }
 
     private int freeUsesRemaining;
+    private int coinCost;
 
-    // Free uses come from the current level's data, not a fixed inspector value —
+    // Free uses and cost come from the current level's data, not fixed inspector values —
     // GameController calls this once per level load.
-    public void Init(int freeUses)
+    public void Init(int freeUses, int cost)
     {
         freeUsesRemaining = freeUses;
+        coinCost = cost;
         RefreshDisplay();
     }
 

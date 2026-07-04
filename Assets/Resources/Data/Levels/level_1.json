@@ -1,16 +1,57 @@
 [
   {
-    "activeCard": "bee",
-    "hand": ["bird", "deer", "snow", "wind", "rain", "ice", "cat", "wolf"],
-    "deck": ["bush", "pond", "sun", "butterfly", "fox", "frog", "cloud"],
-    "maxMoves": 50,
-    "optimalMoves": 10,
-    "optimalPath": ["bee", "bush", "deer", "snow", "ice", "rain", "wind", "bird", "cat", "wolf"],
-    "pathDescription": "bee → [draw bush] → bush → deer → snow → ice → rain → wind → bird → cat → wolf",
-    "worstPath": "bee → butterfly → bush → bird → sun → wind → cloud → snow → ice → rain → pond → frog → wolf → deer → cat → fox  (7 draws, 30 moves)",
+    "activeCard": "pond",
+    "hand": ["milk", "fish", "cat"],
+    "deck": [],
+    "maxMoves": 5,
+    "optimalMoves": 3,
+    "cards": [
+      {
+        "id": "pond",
+        "text": "Pond",
+        "image": "pond"
+      },
+      {
+        "id": "milk",
+        "text": "Milk",
+        "image": "milk"
+      },
+      {
+        "id": "fish",
+        "text": "Fish",
+        "image": "fish"
+      },
+      {
+        "id": "cat",
+        "text": "Cat",
+        "image": "cat"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "pond",
+        "card2": "fish"
+      },
+      {
+        "card1": "fish",
+        "card2": "cat"
+      },
+      {
+        "card1": "cat",
+        "card2": "milk"
+      }
+    ],
     "consumableFreeUses": [
-      {"id": "wildCard", "freeUses": 10},
-      {"id": "undo", "freeUses": 10}
+      {
+        "id": "wildCard",
+        "freeUses": 0,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 0,
+        "cost": 25
+      }
     ]
   }
 ]

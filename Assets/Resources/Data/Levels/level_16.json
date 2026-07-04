@@ -1,0 +1,215 @@
+[
+  {
+    "activeCard": "city",
+    "hand": ["radio", "taxi", "crosswalk", "guitar", "bus", "shoe", "street", "traffic"],
+    "deck": ["light", "lace", "string", "music", "building", "cave", "map", "star", "battery", "flashlight", "park", "bat", "night"],
+    "maxMoves": 20,
+    "optimalMoves": 16,
+    "cards": [
+      {
+        "id": "city",
+        "text": "City",
+        "image": "city"
+      },
+      {
+        "id": "radio",
+        "text": "Radio",
+        "image": "radio"
+      },
+      {
+        "id": "taxi",
+        "text": "Taxi",
+        "image": "taxi"
+      },
+      {
+        "id": "crosswalk",
+        "text": "Crosswalk",
+        "image": "crosswalk"
+      },
+      {
+        "id": "guitar",
+        "text": "Guitar",
+        "image": "guitar"
+      },
+      {
+        "id": "bus",
+        "text": "Bus",
+        "image": "bus"
+      },
+      {
+        "id": "shoe",
+        "text": "Shoe",
+        "image": "shoe"
+      },
+      {
+        "id": "street",
+        "text": "Street",
+        "image": "street"
+      },
+      {
+        "id": "traffic",
+        "text": "Traffic",
+        "image": "traffic"
+      },
+      {
+        "id": "light",
+        "text": "Light",
+        "image": "light"
+      },
+      {
+        "id": "lace",
+        "text": "Lace",
+        "image": "lace"
+      },
+      {
+        "id": "string",
+        "text": "String",
+        "image": "string"
+      },
+      {
+        "id": "music",
+        "text": "Music",
+        "image": "music"
+      },
+      {
+        "id": "building",
+        "text": "Building",
+        "image": "building"
+      },
+      {
+        "id": "cave",
+        "text": "Cave",
+        "image": "cave"
+      },
+      {
+        "id": "map",
+        "text": "Map",
+        "image": "map"
+      },
+      {
+        "id": "star",
+        "text": "Star",
+        "image": "star"
+      },
+      {
+        "id": "battery",
+        "text": "Battery",
+        "image": "battery"
+      },
+      {
+        "id": "flashlight",
+        "text": "Flashlight",
+        "image": "flashlight"
+      },
+      {
+        "id": "park",
+        "text": "Park",
+        "image": "park"
+      },
+      {
+        "id": "bat",
+        "text": "Bat",
+        "image": "bat"
+      },
+      {
+        "id": "night",
+        "text": "Night",
+        "image": "night"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "city",
+        "card2": "street"
+      },
+      {
+        "card1": "city",
+        "card2": "bus"
+      },
+      {
+        "card1": "city",
+        "card2": "taxi"
+      },
+      {
+        "card1": "street",
+        "card2": "bus"
+      },
+      {
+        "card1": "street",
+        "card2": "taxi"
+      },
+      {
+        "card1": "bus",
+        "card2": "taxi"
+      },
+      {
+        "card1": "street",
+        "card2": "traffic"
+      },
+      {
+        "card1": "bus",
+        "card2": "traffic"
+      },
+      {
+        "card1": "taxi",
+        "card2": "traffic"
+      },
+      {
+        "card1": "traffic",
+        "card2": "light"
+      },
+      {
+        "card1": "light",
+        "card2": "crosswalk"
+      },
+      {
+        "card1": "crosswalk",
+        "card2": "shoe"
+      },
+      {
+        "card1": "shoe",
+        "card2": "lace"
+      },
+      {
+        "card1": "lace",
+        "card2": "string"
+      },
+      {
+        "card1": "string",
+        "card2": "guitar"
+      },
+      {
+        "card1": "guitar",
+        "card2": "music"
+      },
+      {
+        "card1": "music",
+        "card2": "radio"
+      },
+      {
+        "card1": "radio",
+        "card2": "battery"
+      },
+      {
+        "card1": "night",
+        "card2": "star"
+      },
+      {
+        "card1": "flashlight",
+        "card2": "cave"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

@@ -1,0 +1,197 @@
+[
+  {
+    "activeCard": "library",
+    "hand": ["piano", "envelope", "page", "door", "story", "mailbox", "book", "paper"],
+    "deck": ["author", "ink", "mail", "key", "lamp", "shelf", "pen", "music", "stamp", "desk", "chair"],
+    "maxMoves": 20,
+    "optimalMoves": 16,
+    "cards": [
+      {
+        "id": "library",
+        "text": "Library",
+        "image": "library"
+      },
+      {
+        "id": "piano",
+        "text": "Piano",
+        "image": "piano"
+      },
+      {
+        "id": "envelope",
+        "text": "Envelope",
+        "image": "envelope"
+      },
+      {
+        "id": "page",
+        "text": "Page",
+        "image": "page"
+      },
+      {
+        "id": "door",
+        "text": "Door",
+        "image": "door"
+      },
+      {
+        "id": "story",
+        "text": "Story",
+        "image": "story"
+      },
+      {
+        "id": "mailbox",
+        "text": "Mailbox",
+        "image": "mailbox"
+      },
+      {
+        "id": "book",
+        "text": "Book",
+        "image": "book"
+      },
+      {
+        "id": "paper",
+        "text": "Paper",
+        "image": "paper"
+      },
+      {
+        "id": "author",
+        "text": "Author",
+        "image": "author"
+      },
+      {
+        "id": "ink",
+        "text": "Ink",
+        "image": "ink"
+      },
+      {
+        "id": "mail",
+        "text": "Mail",
+        "image": "mail"
+      },
+      {
+        "id": "key",
+        "text": "Key",
+        "image": "key"
+      },
+      {
+        "id": "lamp",
+        "text": "Lamp",
+        "image": "lamp"
+      },
+      {
+        "id": "shelf",
+        "text": "Shelf",
+        "image": "shelf"
+      },
+      {
+        "id": "pen",
+        "text": "Pen",
+        "image": "pen"
+      },
+      {
+        "id": "music",
+        "text": "Music",
+        "image": "music"
+      },
+      {
+        "id": "stamp",
+        "text": "Stamp",
+        "image": "stamp"
+      },
+      {
+        "id": "desk",
+        "text": "Desk",
+        "image": "desk"
+      },
+      {
+        "id": "chair",
+        "text": "Chair",
+        "image": "chair"
+      }
+    ],
+    "connections": [
+      {
+        "card1": "library",
+        "card2": "book"
+      },
+      {
+        "card1": "library",
+        "card2": "page"
+      },
+      {
+        "card1": "library",
+        "card2": "story"
+      },
+      {
+        "card1": "book",
+        "card2": "page"
+      },
+      {
+        "card1": "book",
+        "card2": "story"
+      },
+      {
+        "card1": "page",
+        "card2": "story"
+      },
+      {
+        "card1": "book",
+        "card2": "author"
+      },
+      {
+        "card1": "page",
+        "card2": "author"
+      },
+      {
+        "card1": "story",
+        "card2": "author"
+      },
+      {
+        "card1": "author",
+        "card2": "ink"
+      },
+      {
+        "card1": "ink",
+        "card2": "paper"
+      },
+      {
+        "card1": "paper",
+        "card2": "envelope"
+      },
+      {
+        "card1": "envelope",
+        "card2": "mail"
+      },
+      {
+        "card1": "mail",
+        "card2": "mailbox"
+      },
+      {
+        "card1": "mailbox",
+        "card2": "door"
+      },
+      {
+        "card1": "door",
+        "card2": "key"
+      },
+      {
+        "card1": "key",
+        "card2": "piano"
+      },
+      {
+        "card1": "piano",
+        "card2": "music"
+      }
+    ],
+    "consumableFreeUses": [
+      {
+        "id": "wildCard",
+        "freeUses": 3,
+        "cost": 250
+      },
+      {
+        "id": "undo",
+        "freeUses": 3,
+        "cost": 25
+      }
+    ]
+  }
+]

@@ -5,6 +5,7 @@ using UnityEngine;
 public class RevealPile : MonoBehaviour
 {
     public static event System.Action CardDrawnToRevealPile;
+    public static event System.Action PileChanged;
 
     private readonly List<Card> pileCards = new();
 
@@ -36,6 +37,7 @@ public class RevealPile : MonoBehaviour
         foreach (Card card in pileCards)
             if (card != null) Destroy(card.gameObject);
         pileCards.Clear();
+        PileChanged?.Invoke();
     }
 
     public void ReceiveCard(Card card)
@@ -44,6 +46,7 @@ public class RevealPile : MonoBehaviour
         UpdateDraggability();
         UpdateCardPositions();
         CardDrawnToRevealPile?.Invoke();
+        PileChanged?.Invoke();
     }
 
     public void InsertCardAt(Card card, int index)
@@ -52,6 +55,7 @@ public class RevealPile : MonoBehaviour
         pileCards.Insert(index, card);
         UpdateDraggability();
         UpdateCardPositions();
+        PileChanged?.Invoke();
     }
 
     public int IndexOf(Card card) => pileCards.IndexOf(card);
@@ -61,6 +65,7 @@ public class RevealPile : MonoBehaviour
         if (!pileCards.Remove(card)) return;
         UpdateDraggability();
         UpdateCardPositions();
+        PileChanged?.Invoke();
     }
 
     private void OnCardDropped(Card card)
@@ -68,6 +73,7 @@ public class RevealPile : MonoBehaviour
         if (!pileCards.Remove(card)) return;
         UpdateDraggability();
         UpdateCardPositions();
+        PileChanged?.Invoke();
     }
 
     private void OnCardSnapBacked(Card card)

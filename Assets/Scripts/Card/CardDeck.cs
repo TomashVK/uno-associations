@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class CardDeck : MonoBehaviour, IPointerClickHandler
 {
     public static event System.Action Tapped;
+    public static event System.Action DeckChanged;
 
     [SerializeField] private CardData[] cards;
     [SerializeField] private Image deckVisual;
@@ -124,6 +125,7 @@ public class CardDeck : MonoBehaviour, IPointerClickHandler
             deckCountText.gameObject.SetActive(hasCards);
 
         RefreshCountText();
+        DeckChanged?.Invoke();
     }
 
     private void UpdateStackLayers(int remaining)

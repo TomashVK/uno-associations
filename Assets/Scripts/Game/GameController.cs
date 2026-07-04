@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject winPanel;
     [SerializeField] private HudStarDisplay hudStarDisplay;
     [SerializeField] private ConsumableButton[] consumableButtons;
+    [SerializeField] private GameObject resetDeckVisual;
 
 #if UNITY_EDITOR
     [Tooltip("Editor-only: skip resuming an in-progress save and always deal a fresh hand. Has no effect in builds.")]
@@ -51,6 +52,9 @@ public class GameController : MonoBehaviour
         UndoManager.UndoCompleted += CaptureState;
         WildCardButton.WildCardSpawned += CaptureState;
         SaveService.CaptureRequested += CaptureState;
+
+        RevealPile.PileChanged += RefreshResetDeckVisual;
+        CardDeck.DeckChanged += RefreshResetDeckVisual;
     }
 
     private void OnDisable()
@@ -65,6 +69,9 @@ public class GameController : MonoBehaviour
         UndoManager.UndoCompleted -= CaptureState;
         WildCardButton.WildCardSpawned -= CaptureState;
         SaveService.CaptureRequested -= CaptureState;
+
+        RevealPile.PileChanged -= RefreshResetDeckVisual;
+        CardDeck.DeckChanged -= RefreshResetDeckVisual;
     }
 
     private void LoadLevel(int id)
@@ -93,6 +100,7 @@ public class GameController : MonoBehaviour
 
         cardDeck.SetCards(allCards);
         activeCardSlot.Init(graph);
+        RefreshResetDeckVisual();
 
         bool skipResume = false;
 #if UNITY_EDITOR
@@ -166,6 +174,13 @@ public class GameController : MonoBehaviour
         HandManager.IsAnimating = false;
     }
 
+    private void RefreshResetDeckVisual()
+    {
+        if (resetDeckVisual == null) return;
+        int cardsLeftToDraw = cardDeck.RemainingCount + revealPile.PileCards.Count;
+        resetDeckVisual.SetActive(!MoveCounter.IsOutOfMoves && cardsLeftToDraw > 0);
+    }
+
     private void CaptureState()
     {
         if (level == null || levelWon) return;
@@ -223,6 +238,7 @@ public class GameController : MonoBehaviour
     {
         if (moveCountText != null && moveCounter != null)
             moveCountText.text = $"{moveCounter.MovesRemaining}";
+        RefreshResetDeckVisual();
     }
 
     public void RestartLevel()

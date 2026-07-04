@@ -35,6 +35,7 @@ public class ActiveCardSlot : MonoBehaviour, ICardDrop
 
     public bool OnCardDrop(Card card)
     {
+        if (MoveCounter.IsOutOfMoves) return false;
         if (ActiveCard == null) return false;
         if (graph == null) return false;
         bool isJoker = card.Data.isWild || ActiveCard.Data.isWild;

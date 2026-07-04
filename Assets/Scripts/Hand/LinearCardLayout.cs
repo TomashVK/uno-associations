@@ -13,6 +13,7 @@ public class LinearCardLayout
 
     public float ScrollOffset { get; set; }
     public bool Mirrored { get; set; }
+    public bool CanScroll { get; private set; }
 
     public LinearCardLayout(Transform anchor, float spacing, float margin = 0f, bool centerOnSafeArea = false, bool rightAnchored = false)
     {
@@ -32,7 +33,11 @@ public class LinearCardLayout
         }
 
         int count = cards.Count;
-        if (count == 0) return;
+        if (count == 0)
+        {
+            CanScroll = false;
+            return;
+        }
 
         RectTransform anchorRT = anchor as RectTransform;
         if (anchorRT == null)
@@ -76,6 +81,7 @@ public class LinearCardLayout
         float maxScroll = centerOnSafeArea ? Mathf.Max(0f, totalWidth - available) : 0f;
         float scroll = Mathf.Clamp(ScrollOffset, 0f, maxScroll);
         ScrollOffset = scroll;
+        CanScroll = maxScroll > 0f;
 
         for (int i = 0; i < count; i++)
         {

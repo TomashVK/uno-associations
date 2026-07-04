@@ -1015,6 +1015,7 @@ MonoBehaviour:
   consumableButtons:
   - {fileID: 1395038926}
   - {fileID: 970776234}
+  resetDeckVisual: {fileID: 203779858}
   alwaysDealFreshInEditor: 1
 --- !u!114 &512545808
 MonoBehaviour:
@@ -3241,6 +3242,7 @@ MonoBehaviour:
   margin: 240
   revealPile: {fileID: 545798891}
   cardContainer: {fileID: 165791192}
+  handSwipeArea: {fileID: 1566311868}
 --- !u!224 &2041455342
 RectTransform:
   m_ObjectHideFlags: 0

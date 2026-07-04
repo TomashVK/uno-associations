@@ -17,6 +17,7 @@ public class HandManager : MonoBehaviour
     [SerializeField] private float margin = 50f;
     [SerializeField] private RevealPile revealPile;
     [SerializeField] private RectTransform cardContainer;
+    [SerializeField] private GameObject handSwipeArea;
 
     private readonly List<Card> handCards = new();
     private readonly HashSet<Card> draggedFromHand = new();
@@ -251,5 +252,11 @@ public class HandManager : MonoBehaviour
     {
         layout.ScrollOffset = handScrollOffset;
         layout.PlaceCards(handCards);
+        RefreshSwipeAreaVisibility();
+    }
+
+    private void RefreshSwipeAreaVisibility()
+    {
+        if (handSwipeArea != null) handSwipeArea.SetActive(layout.CanScroll);
     }
 }

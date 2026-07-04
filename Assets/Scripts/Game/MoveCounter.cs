@@ -23,6 +23,7 @@ public class MoveCounter : MonoBehaviour
         HandDropZone.CardTakenToHand += OnMoveSpent;
         ActiveCardSlot.CardPlayed += OnMoveSpent;
         HandManager.DeckRestarted += OnMoveSpent;
+        WildCardButton.WildCardSpawned += OnMoveSpent;
     }
 
     private void OnDisable()
@@ -31,6 +32,7 @@ public class MoveCounter : MonoBehaviour
         HandDropZone.CardTakenToHand -= OnMoveSpent;
         ActiveCardSlot.CardPlayed -= OnMoveSpent;
         HandManager.DeckRestarted -= OnMoveSpent;
+        WildCardButton.WildCardSpawned -= OnMoveSpent;
     }
 
     public void Init(int maxMoves)

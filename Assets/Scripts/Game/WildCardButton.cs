@@ -19,11 +19,12 @@ public class WildCardButton : MonoBehaviour
     {
         Instance = this;
         if (consumableButton != null)
-            consumableButton.CanActivate = () => handManager.CanAcceptCard();
+            consumableButton.CanActivate = () => handManager.CanAcceptCard() && !MoveCounter.IsOutOfMoves;
     }
 
     public void SpawnWildCard()
     {
+        if (MoveCounter.IsOutOfMoves) return;
         if (!handManager.CanAcceptCard()) return;
 
         RectTransform container = handManager.CardContainer != null

@@ -7,6 +7,6 @@ public class UndoButton : MonoBehaviour
     private void Awake()
     {
         if (consumableButton != null)
-            consumableButton.CanActivate = () => UndoManager.Instance != null && UndoManager.Instance.CanUndo;
+            consumableButton.CanActivate = () => UndoManager.Instance != null && UndoManager.Instance.CanUndo && !MoveCounter.IsOutOfMoves;
     }
 }

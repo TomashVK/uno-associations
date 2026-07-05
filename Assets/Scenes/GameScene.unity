@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardDeck
   cards: []
   deckVisual: {fileID: 1779884663}
-  cardBackSprite: {fileID: 4299955453057199442, guid: e91e891b27fc24d14b796a8a0462a5d8, type: 3}
+  cardBackSprite: {fileID: -5777897504942914823, guid: 67978f6d8c0c04661a4410c29d7d63cb, type: 3}
   deckCountText: {fileID: 1925927122}
   spawnContainer: {fileID: 1779884661}
   maxStackLayers: 5

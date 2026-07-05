@@ -45,14 +45,12 @@ public class ConsumableButton : MonoBehaviour, IPointerClickHandler
     private void OnEnable()
     {
         CoinService.CoinsChanged += RefreshDisplay;
-        MoveCounter.MovesChanged += RefreshDisplay;
         RefreshDisplay();
     }
 
     private void OnDisable()
     {
         CoinService.CoinsChanged -= RefreshDisplay;
-        MoveCounter.MovesChanged -= RefreshDisplay;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -106,20 +104,15 @@ public class ConsumableButton : MonoBehaviour, IPointerClickHandler
         RefreshDisplay();
     }
 
-    // Out of moves means neither a free use nor coins can actually help — the only
-    // path back into the level is a rewarded ad granting more moves — so every
-    // consumable button (undo, wild card, ...) forces the ad icon in that state
-    // instead of each caller having to special-case its own display.
     private void RefreshDisplay()
     {
-        bool outOfMoves = MoveCounter.IsOutOfMoves;
         bool hasFreeUses = freeUsesRemaining > 0;
         bool hasEnoughCoins = CoinService.Instance != null && CoinService.Instance.Coins >= coinCost;
 
-        if (badgeContainer != null) badgeContainer.SetActive(hasFreeUses && !outOfMoves);
+        if (badgeContainer != null) badgeContainer.SetActive(hasFreeUses);
         if (badgeText != null) badgeText.text = freeUsesRemaining.ToString();
-        if (costContainer != null) costContainer.SetActive(!hasFreeUses && !outOfMoves);
+        if (costContainer != null) costContainer.SetActive(!hasFreeUses);
         if (costLabel != null) costLabel.text = coinCost.ToString();
-        if (adIcon != null) adIcon.SetActive(outOfMoves || (!hasFreeUses && !hasEnoughCoins));
+        if (adIcon != null) adIcon.SetActive(!hasFreeUses && !hasEnoughCoins);
     }
 }
